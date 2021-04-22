@@ -37,6 +37,7 @@
     "test:frontend:watch": "ng test",
     "test:backend": "jest",
     "test:backend:watch": "jest --watchAll",
+    "test:e2e": "echo Testing E2E",
     "lint": "ng lint"
   },
   "private": true,
