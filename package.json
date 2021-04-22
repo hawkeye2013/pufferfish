@@ -34,6 +34,7 @@
     "electron:build": "run-s clean build:prod build:exe electron:builder",
     "electron:builder": "electron-builder build",
     "test:frontend": "ng test --watch=false",
+    "test:frontend:ci": "npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI",
     "test:frontend:watch": "ng test",
     "test:backend": "jest",
     "test:backend:watch": "jest --watchAll",
