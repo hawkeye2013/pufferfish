@@ -1,8 +1,8 @@
 {
-  "name": "angular-rust-electron",
+  "name": "pufferfish",
   "version": "0.0.0",
   "description": "Angular 10 with Electron and Rust",
-  "homepage": "https://github.com/hawkeye2013/angular-rust-electron",
+  "homepage": "https://github.com/hawkeye2013/pufferfish",
   "author": {
     "name": "Tucker Hawkinson",
     "email": "hawkinson.npm@gmail.com"
@@ -35,7 +35,6 @@
     "electron:builder": "electron-builder build",
     "test": "ng test --watch=false",
     "test:watch": "ng test",
-    "e2e": "npm run build:prod && cross-env TS_NODE_PROJECT='e2e/tsconfig.e2e.json' mocha --timeout 300000 --require ts-node/register e2e/**/*.e2e.ts",
     "lint": "ng lint"
   },
   "private": true,

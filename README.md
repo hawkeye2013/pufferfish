@@ -10,10 +10,10 @@ Whew! That's it for the prerequisites...
 
 ## Installation
 
-Once everything is set up from the prerequsites section, a simple [`use this template`](https://github.com/hawkeye2013/angular-rust-electron/generate) or
+Once everything is set up from the prerequsites section, a simple [`use this template`](https://github.com/hawkeye2013/pufferfish/generate) or
 
 ```
-git clone https://github.com/hawkeye2013/angular-rust-electron
+git clone https://github.com/hawkeye2013/pufferfish
 ```
 
 and
