@@ -16,39 +16,34 @@ jobs:
   test-frontend:
     needs: ci-config
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [14.x]
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js 14
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm ci
-      - run: npm run test:frontend:ci
+          node-version: '14'
+      - name: Install Dependencies
+        run: npm ci
+      - name: Run Front End Tests
+        run: npm run test:frontend:ci
 
   test-backend:
     needs: ci-config
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [14.x]
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js 14
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm ci
-      - run: npm run test:backend
+          node-version: '14'
+      - name: Install Dependencies
+        run: npm ci
+      - name: Run Backend Tests
+        run: npm run test:backend
 
   test-e2e:
     needs: [test-frontend, test-backend]
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [14.x]
     steps:
       - uses: actions/checkout@v2
       - run: npm run test:e2e
@@ -56,9 +51,6 @@ jobs:
   build-windows:
     needs: test-e2e
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [14.x]
     steps:
       - uses: actions/checkout@v2
       - run: echo "Build Windows"
@@ -66,28 +58,26 @@ jobs:
   build-mac:
     needs: test-e2e
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [14.x]
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js 14
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: '14'
       - run: echo "Build Mac"
 
   build-linux:
     needs: test-e2e
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [14.x]
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js 14
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm ci
-      - run: npm run electron:build
+          node-version: '14'
+      - name: Install Dependencies
+        run: npm ci
+      - name: Build Application
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: npm run electron:build
