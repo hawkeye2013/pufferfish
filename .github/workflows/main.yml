@@ -52,7 +52,6 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      - run: npm ci
       - run: npm run test:backend
 
   test-e2e:
@@ -113,5 +112,4 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      - run: echo "Build Linux"
-      - run: cargo --version
+      - run: npm run electron:build
